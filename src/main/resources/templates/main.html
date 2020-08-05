@@ -4,15 +4,42 @@
   <body>
   <div th:replace="fragments/fragments :: navbar" ></div>
  
-  <main role="main">
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+ <!--<main role="main">
       <div class="jumbotron">
           <div class="container">
               <h1 class="display-3">Book Store</h1>
               <p>This is a e-commerce application that allows the user to purchase books. </p>
               <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
           </div>
-      </div>
+      </div> --> 
+      
+     
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" th:object="${books}">
+    <div class="carousel-item active">
+     <a th:href="@{/book/4}"><img src="images/wnm.jpg" class="d-block w-100" alt="..."></a> 
+    </div>
+    <div class="carousel-item">
+     <a th:href="@{/book/3}"><img src="images/gw.jpg" class="d-block w-100" alt="..."></a>
+    </div>
+    <div class="carousel-item">
+     <a th:href="@{/book/1}"><img src="images/hp1.jpg" class="d-block w-100" alt="..."></a>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
  
       <div class="container">
           <div class="row">

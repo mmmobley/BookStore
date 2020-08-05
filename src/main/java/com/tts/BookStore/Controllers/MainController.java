@@ -25,33 +25,33 @@ public class MainController {
     //String name, String brand, String category,String image) {
     
     
-   public void addNew() {
-    	 	List<Book> newBooks = new ArrayList<Book>(); 
- 		
-     	newBooks.add(new Book(4, (float) 8.00, "A tale about a young boy wizard.", "Harry Potter and the Socerer's Stone", "JK Rowling", "young adult", "images/apple_mlh32ll_a_15_4_macbook_pro_with_1293726.jpg")); 
-    	
-     	newBooks.add(new Book(3, (float) 8.00, "The sixth book in the popular series.", "Harry Potter and the Half Blood Prince", "JK Rowling", "young adult", "images/C7_ST_Desktop_Front.jpg"));
-     
-     	newBooks.add(new Book(6, (float) 5.00, "Love and heartbreak set during the Civil War.", "Gone With the Wind", "Margaret Mitchell", "romance", "images/iphone8-silver-select-2017.jpg"));
-     	
-     	newBooks.add(new Book(5, (float) 10.00, "A collection of essays detailing Mindy Kaling's adult life.", "Why Not Me?", "Mindy Kaling", "nonfiction", "images/iphonexfrontback-800x573.jpg"));
-     	
-     	List<Book> old = bookService.findAll(); 
-     	for (Book Book : old) {
-     		bookService.deleteById(Book.getId());
-     	}
-     	
-     	for(Book book : newBooks) {
-     		bookService.save(book);
-     	}
-     	
-    }
+//   public void addNew() {
+//    	 	List<Book> newBooks = new ArrayList<Book>(); 
+// 		
+////     	newBooks.add(new Book(4, (float) 8.00, "A tale about a young boy wizard.", "Harry Potter and the Socerer's Stone", "JK Rowling", "young adult", "images/apple_mlh32ll_a_15_4_macbook_pro_with_1293726.jpg")); 
+////    	
+////     	newBooks.add(new Book(3, (float) 8.00, "The sixth book in the popular series.", "Harry Potter and the Half Blood Prince", "JK Rowling", "young adult", "images/C7_ST_Desktop_Front.jpg"));
+////     
+////     	newBooks.add(new Book(6, (float) 5.00, "Love and heartbreak set during the Civil War.", "Gone With the Wind", "Margaret Mitchell", "romance", "images/iphone8-silver-select-2017.jpg"));
+////     	
+////     	newBooks.add(new Book(5, (float) 10.00, "A collection of essays detailing Mindy Kaling's adult life.", "Why Not Me?", "Mindy Kaling", "nonfiction", "images/iphonexfrontback-800x573.jpg"));
+//     	
+//     	List<Book> old = bookService.findAll(); 
+//     	for (Book Book : old) {
+//     		bookService.deleteById(Book.getId());
+//     	}
+//     	
+//     	for(Book book : newBooks) {
+//     		bookService.save(book);
+//     	}
+//     	
+//    }
  
    
     		
     @GetMapping("/")
     public String main() {
-    		addNew(); 
+//    		addNew(); 
         return "main";
     }
 

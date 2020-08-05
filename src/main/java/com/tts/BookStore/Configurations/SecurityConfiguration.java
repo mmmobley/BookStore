@@ -29,11 +29,16 @@ protected void configure(HttpSecurity http) throws Exception {
  http
      .authorizeRequests()
          .antMatchers("/cart").authenticated()
+     .and()
+     .authorizeRequests().antMatchers("/console/**").permitAll()
      .and().formLogin()
          .loginPage("/signin")
          .loginProcessingUrl("/login")
      .and().logout()
          .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
          .logoutSuccessUrl("/");
-}
+ 	
+ 		http.csrf().disable();
+ 		http.headers().frameOptions().disable();
+	}
 }
