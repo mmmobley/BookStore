@@ -10,7 +10,7 @@ import com.tts.BookStore.dtos.StripeChargeRequestDTO;
 @Controller
 public class StripeCheckoutController {
 	
-    private static final String STRIPE_PUBLISHABLE_KEY = "";
+    private static final String STRIPE_PUBLISHABLE_KEY = "pk_test_Re2DJpln6oHT8KCPSqdHa7OV00JD5BfUyY";
 
     @RequestMapping("/checkout")
     public String checkout(Model model) {

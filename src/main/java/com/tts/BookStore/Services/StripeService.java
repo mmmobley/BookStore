@@ -16,7 +16,7 @@ import com.tts.BookStore.dtos.StripeChargeRequestDTO;
 public class StripeService {
 	
 	
-    private static final String STRIPE_SECRET_KEY = "";
+    private static final String STRIPE_SECRET_KEY = "sk_test_XNESqTRNA3D81zQyFOOJGi1w008FA3KpbB";
 
     @PostConstruct
     public void init() {
