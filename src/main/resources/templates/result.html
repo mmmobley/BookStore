@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th='http://www.thymeleaf.org' xmlns='http://www.w3.org/1999/xhtml'>
+<html xmlns:th='http://www.thymeleaf.org'>
 	<head th:replace="fragments/fragments :: head">
 	    <title>Result</title>
 	</head>
@@ -32,23 +32,32 @@
 	                        <a class="dropdown-item" th:each="author : ${authors}" th:text="${author}" th:href="@{/filter(author=${author})}"></a>
 	                    </div>
 	                </li>
+	                <li class="nav-item">
+			       		 <a class="nav-link" href="/about">Contact Us</a>
+			     	<th:block th:if="${loggedInUser != null}">
+			     	</li>
+			     	<li class="nav-item">
+			        	<a class="nav-link" href="/booklist">Admin</a>
+			      	</li>
+			      	</th:block>
 	            </ul>
 	 
 	            <ul class="nav navbar-nav ml-auto">
 	                <!--/*@thymesVar id="loggedInUser" type="com.example.demo.model.User"*/-->
-	                <th:block th:if="${loggedInUser != null}">
-	                    <li class="nav-item active nav-link" th:text="${loggedInUser.username}"></li>
+	               <!--  <th:block th:if="${loggedInUser != null}">th:with="size=${#aggregates.sum(cart.values())}"--> 
+	                    <li class="nav-item active nav-link" th:text="admin"></li>
 	                    <li class="nav-item active">
 	                        <!--/*@thymesVar id="cart" type="java.util.Map<com.example.demo.model.Product, java.lang.Integer>"*/-->
-	                        <a class="nav-link" href="/cart" th:with="size=${#aggregates.sum(cart.values())}">
+	                        <a class="nav-link" href="/cart" >
 	                            My Cart
-	                            <span th:if="${size != null}" th:text="| (${0})|"></span>
+	                            <span  text="0"></span>
+	                            <!--th:if="${size != null}"  -->
 	                        </a>
 	                    </li>
-	                    <li class="nav-item active" th:unless="${loggedInUser == null}">
+	                    <li class="nav-item active" >
 	                        <a class="nav-link" href="/signout">Sign Out</a>
 	                    </li>
-	                </th:block>
+	               <!-- </th:block>th:unless="${loggedInUser == null}"--> 
 	                <li class="nav-item active" th:if="${loggedInUser == null}">
 	                    <a class="nav-link" href="/signin">Sign In/Up</a>
 	                </li>

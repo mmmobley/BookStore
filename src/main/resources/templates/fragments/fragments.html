@@ -80,6 +80,12 @@
                  <li class="nav-item">
 			        <a class="nav-link" href="/about">Contact Us</a>
 			      </li>
+			      	<th:block th:if="${loggedInUser != null}">
+			     	</li>
+			     	<li class="nav-item">
+			        	<a class="nav-link" href="/booklist">Admin</a>
+			      	</li>
+			      	</th:block>
             </ul>
  
             <ul class="nav navbar-nav ml-auto">

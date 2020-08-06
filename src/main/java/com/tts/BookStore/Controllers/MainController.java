@@ -65,6 +65,11 @@ public class MainController {
     public String showlist() {
     	return "list";
     }
+    
+    @GetMapping("/editbook")
+    public String showeditpage() {
+    	return "editbook";
+    }
 
     @ModelAttribute("books")
     public List<Book> books() {
