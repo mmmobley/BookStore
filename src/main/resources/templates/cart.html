@@ -28,9 +28,9 @@
                           </td>
                           <td th:if="${list.add(book.price * item.value)}" th:text="${#numbers.formatCurrency(book.price * item.value)}"></td>
                           <td>
-                              <form th:action="@{/cart}" method="post" style="display: inline">
+                             <!--<form th:action="@{/cart}" method="post" style="display: inline">
                                   <input type="hidden" name="_method" value="DELETE" />
-                                  <input type="hidden" name="id" th:value="${book.id}" />
+                                  <input type="hidden" name="id" th:value="${book.id}" />-->
                                   <button class="btn btn-danger" style="display: inline" type="submit">Delete</button>
                               </form>
                           </td>
@@ -48,10 +48,14 @@
               </table>
  
               <form th:action="@{/cart}" method="post" id="updateForm" th:if="${cart.size() > 0}">
-                  <!-- form doesn't support PATCH requests, but this tells Spring Boot to use @PatchMapping anyway. -->
-                  <input type="hidden" name="_method" value="PATCH" />
+                    <input type="hidden" name="_method" value="PATCH" />
                   <button type="submit" class="btn btn-primary">Update Cart</button>
               </form>
+              <div class="align-self-end ml-auto" th:if="${cart.size() > 0}">
+              <h5>Ready to checkout?</h5>
+        
+	     	<a th:href="@{/checkout}"><button class="btn btn-md btn-primary btn-block pull-right" name="Submit" value="Checkout" type="Submit">Checkout</button></a>
+              </div>
               <div th:if="${cart.size() == 0}">Nothing in your cart yet.</div>
           </div>
       </div>

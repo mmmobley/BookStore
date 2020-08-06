@@ -54,6 +54,17 @@ public class MainController {
 //    		addNew(); 
         return "main";
     }
+    
+    @GetMapping("/result")
+    public String result() { 
+        return "result";
+    }
+    
+    
+    @GetMapping("/list")
+    public String showlist() {
+    	return "list";
+    }
 
     @ModelAttribute("books")
     public List<Book> books() {
@@ -76,7 +87,7 @@ public class MainController {
                          Model model) {
         List<Book> filtered = bookService.findByAuthorAndOrGenre(author, genre);
         model.addAttribute("books", filtered); // Overrides the @ModelAttribute above.
-        return "main";
+        return "list";
     }
 
     @GetMapping("/about")

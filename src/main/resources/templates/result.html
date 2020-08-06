@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th='http://www.thymeleaf.org' xmlns='http://www.w3.org/1999/xhtml'>
+	<head th:replace="fragments/fragments :: head">
+	    <title>Result</title>
+	</head>
+	<body>
+  		<div>
+	  		<nav class="navbar navbar-expand-md navbar-default navbar-dark bg-dark">
+	        <a class="navbar-brand" href="/">RM Book Store</a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+	                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+	 
+	        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	            <ul class="navbar-nav mr-auto">
+	                <li class="nav-item dropdown">
+	                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+	                       aria-haspopup="true" aria-expanded="false">Find By Genre</a>
+	                    <div class="dropdown-menu" aria-labelledby="dropdown01" >
+	                        <a class="dropdown-item" href="/">All</a>
+	                        <!--/*@thymesVar id="categories" type="java.util.List<com.example.demo.model.Category>"*/-->
+	                        <a class="dropdown-item" th:each="genre : ${genres}" th:text="${genre}" th:href="@{/filter(genre=${genre})}"></a>
+	                    </div>
+	                </li>
+	                <li class="nav-item dropdown">
+	                    <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+	                       aria-haspopup="true" aria-expanded="false">Find By Author</a>
+	                    <div class="dropdown-menu" aria-labelledby="dropdown01" >
+	                        <a class="dropdown-item" href="/">All</a>
+	                        <!--/*@thymesVar id="brands" type="java.util.List<java.lang.String>"*/-->
+	                        <a class="dropdown-item" th:each="author : ${authors}" th:text="${author}" th:href="@{/filter(author=${author})}"></a>
+	                    </div>
+	                </li>
+	            </ul>
+	 
+	            <ul class="nav navbar-nav ml-auto">
+	                <!--/*@thymesVar id="loggedInUser" type="com.example.demo.model.User"*/-->
+	                <th:block th:if="${loggedInUser != null}">
+	                    <li class="nav-item active nav-link" th:text="${loggedInUser.username}"></li>
+	                    <li class="nav-item active">
+	                        <!--/*@thymesVar id="cart" type="java.util.Map<com.example.demo.model.Product, java.lang.Integer>"*/-->
+	                        <a class="nav-link" href="/cart" th:with="size=${#aggregates.sum(cart.values())}">
+	                            My Cart
+	                            <span th:if="${size != null}" th:text="| (${0})|"></span>
+	                        </a>
+	                    </li>
+	                    <li class="nav-item active" th:unless="${loggedInUser == null}">
+	                        <a class="nav-link" href="/signout">Sign Out</a>
+	                    </li>
+	                </th:block>
+	                <li class="nav-item active" th:if="${loggedInUser == null}">
+	                    <a class="nav-link" href="/signin">Sign In/Up</a>
+	                </li>
+	 
+	            </ul>
+	        </div>
+	    </nav>
+  		</div>
+		<!--<h3 th:if='${error}' th:text='${error}' style='color: red;'></h3>  -->
+		<div class="results">
+		<!-- th:unless='${error}' -->
+		<div class="alert alert-success text-center">
+		  <strong>Success!</strong> Your payment has been processed.
+		</div>
+		   <!-- <h3 style='color: green;'>Success!</h3>-->
+		    <div>Id: &nbsp;3 </div>
+		   <!-- <span th:text='${id}'></span> --> 
+		    <div>Status: &nbsp;Complete </div>
+		    <!--<span th:text='${status}'></span>  -->
+		    <div>Order Number: &nbsp;16403 </div>
+		    <!-- <span th:text='${chargeId}'></span> -->
+		    <div>Amount Paid: &nbsp;$16.00 </div>
+		    <!-- <span th:text='${balance_transaction}'></span> -->
+		    <br/>
+		    <h2><strong>Thank you for shopping with RM Book Store!</strong></h2>
+		</div>
+		<!-- <a href='/checkout'>Checkout again</a>-->
+		
+		<footer th:replace="fragments/fragments :: footer"></footer>
+	 </body>
+</html>

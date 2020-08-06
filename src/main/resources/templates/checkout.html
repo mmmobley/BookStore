@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th='http://www.thymeleaf.org'>
+  <head th:replace="fragments/fragments :: head"></head>
+  <body>
+  	<div th:replace="fragments/fragments :: navbar" ></div>
+	<form action='/result' method='POST' id='checkout-form' xmlns:th="http://www.springframework.org/schema/mvc">
+    <input type='hidden' th:value='${amount}' name='amount' />
+
+		
+					<div class="alert alert-warning text-center" role="alert">
+					  <strong>Warning!</strong> All purchases are final at this time. To continue with your purchase please press "Pay with Card" below</a>.
+					</div>
+		   		<!-- <div class="container-fluid">
+		    	<div class="row">
+		
+		        <div class="col-md-10 col-md-offset-1">
+		   		
+		   		</div>
+		
+		  		</div>
+				</div>-->
+	<div class="chtot">
+        <label><b>Total:</b>&nbsp;$<span th:text='${amount/100}' /></label>
+    
+	<br/>
+    <script
+        src='https://checkout.stripe.com/checkout.js'
+        class='stripe-button'
+        th:attr='data-key=${stripePublicKey},
+        data-amount=${amount},
+        data-currency=${currency}'
+        data-name='Checkout'
+        data-description='Checkout example from RM Book Store'
+        
+        data-locale='auto'
+        data-zip-code='false'>
+    </script>
+    </div>
+</form>
+<footer th:replace="fragments/fragments :: footer"></footer>
+  </body>
+</html>

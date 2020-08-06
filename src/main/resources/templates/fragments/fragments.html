@@ -23,11 +23,34 @@
             flex-direction: column;
             justify-content: center;
         }
+        
+        .chtot{
+        	text-align: center;
+        	font-size: 50px;
+        }
+        
+        .results{
+        	text-align: center;	
+        }
+        
+        .carousel-caption {
+		    position: relative;
+		    left: 0;
+		    top: 0;
+		}
+		.col-centered{
+		   float: none;
+		   margin: 0 auto;
+		}
+		
+		.blue-text{
+			text-color: blue;
+		}
     </style>
 </head>
 <body>
 <div th:fragment="navbar">
-    <nav class="navbar navbar-expand-md navbar-default navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-default navbar-dark bg-dark">
         <a class="navbar-brand" href="/">RM Book Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +63,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Find By Genre</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01" >
-                        <a class="dropdown-item" href="/">All</a>
+                        <a class="dropdown-item" href="/list">All</a>
                         <!--/*@thymesVar id="categories" type="java.util.List<com.example.demo.model.Category>"*/-->
                         <a class="dropdown-item" th:each="genre : ${genres}" th:text="${genre}" th:href="@{/filter(genre=${genre})}"></a>
                     </div>
@@ -49,11 +72,14 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Find By Author</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01" >
-                        <a class="dropdown-item" href="/">All</a>
+                        <a class="dropdown-item" href="/list">All</a>
                         <!--/*@thymesVar id="brands" type="java.util.List<java.lang.String>"*/-->
                         <a class="dropdown-item" th:each="author : ${authors}" th:text="${author}" th:href="@{/filter(author=${author})}"></a>
                     </div>
                 </li>
+                 <li class="nav-item">
+			        <a class="nav-link" href="/about">Contact Us</a>
+			      </li>
             </ul>
  
             <ul class="nav navbar-nav ml-auto">
@@ -82,6 +108,7 @@
  
 <footer th:fragment="footer">
     <hr />
+    
     <div class="container">
         <p>&copy; Company 2020</p>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

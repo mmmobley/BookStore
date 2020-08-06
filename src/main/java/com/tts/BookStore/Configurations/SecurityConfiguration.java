@@ -14,31 +14,35 @@ import com.tts.BookStore.Services.UserService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-@Autowired
-private UserService userService;
-@Autowired
-private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-@Override
-protected void configure(AuthenticationManagerBuilder auth) throws Exception {
- auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
-}
-
-@Override
-protected void configure(HttpSecurity http) throws Exception {
- http
-     .authorizeRequests()
-         .antMatchers("/cart").authenticated()
-     .and()
-     .authorizeRequests().antMatchers("/console/**").permitAll()
-     .and().formLogin()
-         .loginPage("/signin")
-         .loginProcessingUrl("/login")
-     .and().logout()
-         .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-         .logoutSuccessUrl("/");
- 	
- 		http.csrf().disable();
- 		http.headers().frameOptions().disable();
-	}
+		
+		@Autowired
+		private UserService userService;
+		@Autowired
+		private BCryptPasswordEncoder bCryptPasswordEncoder;
+		
+		@Override
+		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		 auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
+		}
+		
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+		 http
+		     .authorizeRequests()
+		         .antMatchers("/cart").authenticated()
+		         .antMatchers("/result").authenticated()
+		     .and()
+		     .authorizeRequests().antMatchers("/console/**").permitAll()
+		     .and().formLogin()
+		         .loginPage("/signin")
+		         .loginProcessingUrl("/login")
+		     .and().logout()
+		         .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
+		         .logoutSuccessUrl("/");
+		 	
+		 		http.csrf().disable();
+		 		http.headers().frameOptions().disable();
+			}
+	
+	
 }

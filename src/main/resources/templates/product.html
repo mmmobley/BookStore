@@ -4,13 +4,14 @@
     <body>
     <div th:replace="fragments/fragments :: navbar" ></div>
  
+ 	
     <div class="container">
-        <div class="card mb-3 large-product-card">
-            <div class="row no-gutters">
-                <div class="col-md-6">
-                    <img th:alt="${book.title}" th:src="${book.image}" class="card-img" style="max-height: 100%; object-fit: cover;" />
-                </div>
-            <div class="col-md-4">
+        <div class="card mb-3 large-product-card w-50 mx-auto">
+           <div class="row no-gutters">
+            <!--   <div class="col-sm-6">
+                  <img th:alt="${book.title}" th:src="@{${book.image}}" class="card-img" style="max-height: 100%; object-fit: cover;" />  
+                </div>-->
+            <div class="col-sm-6">
                 <div class="card-body">
                     <div class="card-title">
                         <h4 th:text="${book.title}" style="margin-bottom: 0;"></h4>

@@ -4,44 +4,130 @@
   <body>
   <div th:replace="fragments/fragments :: navbar" ></div>
  
- <!--<main role="main">
+ <!-- <main role="main">
       <div class="jumbotron">
           <div class="container">
               <h1 class="display-3">Book Store</h1>
               <p>This is a e-commerce application that allows the user to purchase books. </p>
               <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
           </div>
-      </div> --> 
+      </div> -->
+      <div class="alert alert-warning" role="alert">
+		  <strong>Warning!</strong> Due to the Novel Coronavirus (COVID-19) outbreak&comma; restrictions on
+		  international transport&comma; traffic in individual regions and border controls may affect the delivery
+		  time or even prevent delivery.
+		</div>
+	<!-- Jumbotron -->
+	<div class="card card-image" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://img.theculturetrip.com/1024x574/smart/wp-content/uploads/2017/06/eugenio-mazzone-190204.jpg);">
+	  <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+	    <div class="py-5">
+	
+	      <!-- Content -->
+	       <h2 class="card-title h2 my-4 py-2"><i class="fas fa-book"></i>&nbsp;Welcome to RM Book Store</h2>
+	      <h5 class="h5 orange-text"> &quot;A reader lives a thousand lives before they die.&quot;</h5>
+	     
+	      <p class="mb-4 pb-2 px-md-5 mx-md-5">We're dedicated to providing access to a wide variety of current and old books.
+	      Our catalogue is constantly being updated. We hope you find what you're looking for.</p>
+	      <a class="btn peach-gradient"><i class="fas fa-clone left"></i> View our photos</a>
+	
+	    </div>
+	  </div>
+	</div>
+	<br/>
+	<!-- Jumbotron -->
+     <div class="row">
+    	<div class="col-md-5 col-centered">
+	      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			  <ol class="carousel-indicators my-4">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			  </ol>
+			  <div class="carousel-inner" th:object="${books}">
+			    <div class="carousel-item active img-fluid">
+			     <a th:href="@{/book/4}"><img src="images/wnm.jpg" class="d-block w-100" alt="Why Not Me?"></a> 
+			     <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+			          <h5>From the Producer of the Mindy Project</h5>
+			          <p>&quot;I will leave you with one last piece of advice&comma; which is&colon; If you&apos;ve got it&comma; flaunt it. 
+			          And if you don&apos;t got it&quest; Flaunt it. &rsquo;Cause what are we even doing here if we&apos;re not flaunting it&quest;&quot;
+						<br/> &hyphen;&nbsp; Mindy Kaling</p>
+			     </div>
+			    </div>
+			    <div class="carousel-item img-fluid">
+			     <a th:href="@{/book/3}"><img src="images/gw.jpg" class="d-block w-100" alt="Gone With the Wind"></a>
+			     <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+			          <h5>A Classic Love Story</h5>
+			          <p>&quot;Well&comma; my dear&comma; take heart. Some day&comma; I will kiss you and you will like it. But not now&comma;
+			           so I beg you not to be too impatient.&quot; &hyphen;&nbsp; Margaret Mitchell</p>
+			     </div>
+			    </div>
+			    <div class="carousel-item img-fluid">
+			     <a th:href="@{/book/1}"><img src="images/hp1.jpg" class="d-block w-100" alt="Harry Potter 1"></a>
+			     <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+			          <h5>All Time Best Seller</h5>
+			          <p>&quot;I solemnly swear that I am up to no good.&quot; &hyphen;&nbsp;J.K. Rowling</p>
+			     </div>
+			    </div>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+	</div>
+	<!-- News jumbotron -->
+<div class="jumbotron text-center hoverable p-4">
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+      <!-- Featured image -->
+      <div class="view overlay">
+        <img src="https://www.rd.com/wp-content/uploads/2016/12/09-Thoughtful-Ways-to-Donate-Your-Used-Books_donation-town_84062652_artisteer.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+      <!-- Excerpt -->
       
+        <h6 class="h6 pb-1"><i class="fas fa-book-open pr-1"></i> News</h6>
      
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" th:object="${books}">
-    <div class="carousel-item active">
-     <a th:href="@{/book/4}"><img src="images/wnm.jpg" class="d-block w-100" alt="..."></a> 
+
+      <h4 class="h4 mb-4">Donating for a cause</h4>
+
+      <p class="font-weight-normal">We believe in giving back to the community.
+       A fraction of every book purchase goes towards the National Book Foundation.
+       You can also make a personal donation by clicking the button below. </p>
+      <!--<p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>  -->
+
+      <a class="btn btn-primary">Make a donation</a>
+
     </div>
-    <div class="carousel-item">
-     <a th:href="@{/book/3}"><img src="images/gw.jpg" class="d-block w-100" alt="..."></a>
-    </div>
-    <div class="carousel-item">
-     <a th:href="@{/book/1}"><img src="images/hp1.jpg" class="d-block w-100" alt="..."></a>
-    </div>
+    <!-- Grid column -->
+
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <!-- Grid row -->
+
 </div>
+<!-- News jumbotron -->
+
  
-      <div class="container">
+    <!-- <div class="container">
           <div class="row">
        		 <div class="card col-md-3 small-product-card"  th:each="book:${books}">
                     <a  th:href="@{/book/{id}(id=${book.getId()})}"><img th:alt="${book.title}" th:src="@{${book.image}}" class="card-img"/></a>
@@ -53,7 +139,7 @@
                 	</div>    
         		</div>
     		</div>
-  		</div>
+  		</div>-->
   </main>
  
   <footer th:replace="fragments/fragments :: footer"></footer>
