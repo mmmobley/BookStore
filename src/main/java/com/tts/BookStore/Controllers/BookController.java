@@ -56,7 +56,7 @@ public class BookController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("book") Book book) {
+    public String saveBook(@ModelAttribute("book") Book book) {
         bookService.save(book);
          
         return "redirect:/booklist";

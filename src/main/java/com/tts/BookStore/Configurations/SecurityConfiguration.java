@@ -38,7 +38,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		         .loginProcessingUrl("/login")
 		     .and().logout()
 		         .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-		         .logoutSuccessUrl("/");
+		         .logoutSuccessUrl("/")
+		 	  .and().requiresChannel()
+			      .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+			      .requiresSecure();
 		 	
 		 		http.csrf().disable();
 		 		http.headers().frameOptions().disable();
